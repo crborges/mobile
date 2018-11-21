@@ -15,7 +15,9 @@ import { ProdutosPage } from '../pages/produtos/produtos';
 import { VendaPage } from '../pages/vendas/venda/venda';
 import { VendasPage } from '../pages/vendas/vendas';
 import { ProdutoService } from '../services/ProdutoService';
-
+import { DatabaseService } from '../services/DatabaseService';
+import { SQLite } from '@ionic-native/sqlite';
+import { SQLiteMock } from '../services/SQLiteMock';
 
 
 
@@ -64,7 +66,16 @@ import { ProdutoService } from '../services/ProdutoService';
     SplashScreen,
     /* tem que colocar as services aqui  */
     ProdutoService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DatabaseService,
+    /* PARA SER MOCKADO */
+    { provide: SQLite, useClass: SQLiteMock }
+    /* 
+    PARA RODAR NO MUNDO REAL 
+    ,
+    SQLite
+    */
+
   ]
 })
 export class AppModule {}
