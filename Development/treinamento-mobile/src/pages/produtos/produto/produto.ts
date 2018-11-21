@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ProdutoService } from '../../../services/ProdutoService';
+import { Produto } from '../../../model/Produto';
 
 /**
  * Generated class for the ProdutoPage page.
@@ -13,17 +15,24 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'produto.html',
 })
 export class ProdutoPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public produto: Produto = new Produto();
+  
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public produtoService: ProdutoService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProdutoPage');
+    this.produtoService.detail(this.navParams.get("id"))
+    .subscribe(produto => {
+      this.produto = produto;
+    });
   }
-  itemSelected() {
-    this.navCtrl.push(ProdutoPage);
-   }
 }
+
+
 
 
 

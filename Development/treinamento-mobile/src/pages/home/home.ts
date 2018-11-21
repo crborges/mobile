@@ -17,6 +17,7 @@ import { VendasPage } from '../vendas/vendas';
 
 
  
+ 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -36,10 +37,12 @@ export class HomePage {
 ionViewDidLoad() {
   console.log('ionViewDidLoad HomePage');
 }
-  openPage(page) {
+
+openPage(page) {
   this.nav.setRoot(page.component);
 }
-  sair() {
+
+sair() {
   this.nav.setRoot(LoginPage);
 }
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ProdutoPage } from './produto/produto';
+import { Produto } from '../../model/Produto';
+import { ProdutoService } from '../../services/ProdutoService';
 
 /**
  * Generated class for the ProdutosPage page.
@@ -14,17 +16,34 @@ import { ProdutoPage } from './produto/produto';
   templateUrl: 'produtos.html',
 })
 export class ProdutosPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private produtos: Produto[];
+  
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public produtoService: ProdutoService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProdutosPage');
+    this.produtoService.list()
+        .subscribe(
+          produtos => this.produtos = produtos,
+          error => console.log(error));
   }
 
-  itemSelected() {
-    this.navCtrl.push(ProdutoPage);
-   }
-   
+  itemSelected(item) {
+    this.navCtrl.push(ProdutoPage, item);
+  }
+
+  doRefresh(refresher){
+    this.produtoService.list()
+        .subscribe(
+          produtos => this.produtos = produtos,
+          error => console.log(error),
+          ()=>refresher.complete());
+  }
+}
+
 
 }

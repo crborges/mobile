@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -14,6 +14,7 @@ import { ProdutoPage } from '../pages/produtos/produto/produto';
 import { ProdutosPage } from '../pages/produtos/produtos';
 import { VendaPage } from '../pages/vendas/venda/venda';
 import { VendasPage } from '../pages/vendas/vendas';
+import { ProdutoService } from '../services/ProdutoService';
 
 
 
@@ -37,7 +38,9 @@ import { VendasPage } from '../pages/vendas/vendas';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
+  
   ],
   bootstrap: [IonicApp],
   
@@ -59,6 +62,8 @@ import { VendasPage } from '../pages/vendas/vendas';
   providers: [
     StatusBar,
     SplashScreen,
+    /* tem que colocar as services aqui  */
+    ProdutoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
