@@ -1,0 +1,35 @@
+<ion-navbar>
+  <button ion-button menuToggle icon-only>
+    <ion-icon name='menu'></ion-icon>
+  </button>
+  Estoque unidade
+</ion-navbar>
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Estoque</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="pie"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/logo.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>Óculos 3D Samsung</h2>
+        <h3>Eletrônicos</h3>
+        <p>100 Unidades</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Produto lista</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item (click)="itemSelected(item)">
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/logo.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>Óculos 3D Samsung</h2>
+        <h3>Eletrônicos</h3>
+        <p>R$ 1.500,00</p>
+      </ion-label>
+    </button>
+  </ion-list>
+</ion-content>

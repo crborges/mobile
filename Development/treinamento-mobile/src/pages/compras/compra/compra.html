@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Compra Unidade</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+  
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Código do Produto</ion-label>
+      <ion-input type="text" value=""></ion-input>
+      <button item-right icon-only>
+        <ion-icon name="barcode"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Valor Unitário</ion-label>
+      <ion-input type="text" value="R$ 1,00" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Quantidade</ion-label>
+      <ion-input type="text" value=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Valor Total</ion-label>
+      <ion-input type="text" value="R$ 100,00" readonly></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full>Gravar</button>
+</ion-content>
