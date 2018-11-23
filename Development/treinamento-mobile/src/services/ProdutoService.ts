@@ -49,5 +49,12 @@ export class ProdutoService {
         return this.databaseService.executeSql(Produto.deleteAllSql());
     }
 
+    getById(id: string): Observable<Produto> {
+        return this.listFromCache()
+        .map(produtos => produtos.filter(produto => produto.id == id)[0]);
+}
+
+
+
 
 }

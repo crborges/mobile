@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-//import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -69,6 +69,7 @@ import { FcmProvider } from '../providers/fcm/fcm';
     Firebase,
     FcmProvider,
     DatabaseService,
+    BarcodeScanner,
     /* PARA SER MOCKADO */
     { provide: SQLite, useClass: SQLiteMock }
     /* 
