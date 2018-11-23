@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+//import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,10 +19,8 @@ import { ProdutoService } from '../services/ProdutoService';
 import { DatabaseService } from '../services/DatabaseService';
 import { SQLite } from '@ionic-native/sqlite';
 import { SQLiteMock } from '../services/SQLiteMock';
-
-
-
-
+import { Firebase } from '@ionic-native/firebase';
+import { FcmProvider } from '../providers/fcm/fcm';
 
 
 
@@ -67,6 +66,8 @@ import { SQLiteMock } from '../services/SQLiteMock';
     /* tem que colocar as services aqui  */
     ProdutoService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Firebase,
+    FcmProvider,
     DatabaseService,
     /* PARA SER MOCKADO */
     { provide: SQLite, useClass: SQLiteMock }
@@ -75,6 +76,7 @@ import { SQLiteMock } from '../services/SQLiteMock';
     ,
     SQLite
     */
+
 
   ]
 })
