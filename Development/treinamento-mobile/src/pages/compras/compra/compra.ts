@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
-import { ComprasPage } from '../compras';
+//import { ComprasPage } from '../compras';
 import { ProdutoService } from '../../../services/ProdutoService';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Compra } from '../../../model/Compra';

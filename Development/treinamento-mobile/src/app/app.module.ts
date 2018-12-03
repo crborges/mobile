@@ -21,8 +21,17 @@ import { SQLite } from '@ionic-native/sqlite';
 import { SQLiteMock } from '../services/SQLiteMock';
 import { Firebase } from '@ionic-native/firebase';
 import { FcmProvider } from '../providers/fcm/fcm';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpModule } from '@angular/http';
+import { Globalization } from '@ionic-native/globalization'
 
 
+
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -40,7 +49,15 @@ import { FcmProvider } from '../providers/fcm/fcm';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+      HttpModule,
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+        }
+      })
   
   ],
   bootstrap: [IonicApp],
@@ -69,6 +86,8 @@ import { FcmProvider } from '../providers/fcm/fcm';
     Firebase,
     FcmProvider,
     DatabaseService,
+    /* provider de internacionalizacao */
+    Globalization,
     BarcodeScanner,
     /* PARA SER MOCKADO */
     { provide: SQLite, useClass: SQLiteMock }

@@ -1,0 +1,14 @@
+{
+    "PRODUTOS": "Products list",
+    "PRODUTO": "Product unit",
+    "TITULO": "Title",
+    "DESCRICAO": "Description",
+    "VALOR_UNITARIO": "Unit Price",
+    "ESTOQUE_INICIAL": "Initial Inventory",
+    "COMPRAR": "Buy",
+    "VENDER": "Sell",
+    "ESTOQUE": "Inventory",
+    "COMPRAS": "Purchases",
+    "VENDAS": "Sales",
+    "SAIR": "Sign out"
+}
